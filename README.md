@@ -14,7 +14,7 @@ The system uses my hosted **OAX-1B-Humanoid** language model through a Hugging F
 
 A short demonstration video is available here:
 
-[Watch the demo video](GOOGLE_DRIVE_VIDEO_LINK_HERE)
+[Watch the demo video](https://drive.google.com/file/d/1RxVhzRdtgY-IFzAmc1D7efbQyPrlYRvs/view?usp=drive_link)
 
 The video demonstrates:
 
@@ -62,7 +62,8 @@ The physical prototype was developed over approximately three months as an end-t
 
 The robot prototype combined:
 
-- a desktop humanoid robotic arm,
+- a desktop-scale humanoid robotic platform,
+- a 5-DOF robotic arm with an end-effector/gripper,
 - a camera-based perception system,
 - object search and tracking behaviours,
 - a custom 1B-parameter LLaMA-style language model,
@@ -76,9 +77,13 @@ The virtual harness in this repository keeps the same core idea, but replaces th
 
 ### Prototype Images
 
+![OAX humanoid robot prototype - 3D Design](assets/oax_robot_3D_design.jpg)
+
 ![OAX humanoid robot prototype - front view](assets/oax_robot_front.jpg)
 
-![OAX humanoid robot prototype - arm and gripper](assets/oax_robot_arm.jpg)
+![OAX humanoid robot prototype - head](assets/oax_robot_head.jpg)
+
+![OAX humanoid robot prototype - gripper and wrist](assets/oax_robot_gripper.jpg)
 
 ---
 
