@@ -12,17 +12,18 @@ The system uses my hosted **OAX-1B-Humanoid** language model through a Hugging F
 
 ## Demo Video
 
-A short demo video can be added here:
+A short demonstration video is available here:
 
-[Demo Video](PASTE_VIDEO_LINK_HERE)
+[Watch the demo video](GOOGLE_DRIVE_VIDEO_LINK_HERE)
 
-The video can show:
+The video demonstrates:
 
-- the program receiving a natural language goal,
-- the hosted LLM proposing a tool call,
-- the Controller correcting invalid or premature actions,
-- the virtual world updating state,
-- the agent completing the task.
+- entering a natural language goal,
+- sending the structured observation to the hosted OAX LLM,
+- receiving a JSON-style tool call,
+- repairing invalid LLM actions through the Controller,
+- updating the virtual world state,
+- completing the task successfully.
 
 ---
 
@@ -50,6 +51,56 @@ User command
 ```
 
 This challenge project adapts that idea into a lightweight virtual world so the agent harness can be tested clearly without requiring physical robot hardware.
+
+---
+
+## Related Physical Robot Prototype
+
+This virtual agent harness is inspired by my physical OAX humanoid robot prototype, developed as my MSc Artificial Intelligence and Data Science final project.
+
+The physical prototype was developed over approximately three months as an end-to-end robotics artefact. The work included mechanical design, 3D-printed structure, electronics, actuator integration, embedded control, computer vision, LLM-based decision-making, and system-level software integration.
+
+The robot prototype combined:
+
+- a desktop humanoid robotic arm,
+- a camera-based perception system,
+- object search and tracking behaviours,
+- a custom 1B-parameter LLaMA-style language model,
+- JSON-based robot tool calling,
+- Planner and Controller validation layers,
+- pick, place, search, and status behaviours.
+
+The main idea behind the original system was to separate high-level language reasoning from low-level execution. The LLM generated structured tool calls, while deterministic validation layers checked whether each action was safe and valid before execution.
+
+The virtual harness in this repository keeps the same core idea, but replaces the physical robot with a simple configurable virtual world. This makes the agent loop easier to run, inspect, and evaluate without requiring access to the physical hardware.
+
+### Prototype Images
+
+![OAX humanoid robot prototype - front view](assets/oax_robot_front.jpg)
+
+![OAX humanoid robot prototype - arm and gripper](assets/oax_robot_arm.jpg)
+
+---
+
+## System Architecture
+
+The system is organised around a simple but important separation:
+
+```text
+Natural language goal
+→ Virtual world observation
+→ Hosted OAX-1B-Humanoid LLM
+→ JSON tool call
+→ Controller validation / repair
+→ World action execution
+→ Updated world state
+```
+
+You can add an architecture diagram here:
+
+![System architecture](assets/architecture.png)
+
+The LLM is responsible for high-level reasoning and tool-call proposal. The Controller is responsible for checking whether the proposed action is valid for the current state. The World only executes actions that have passed through the Controller.
 
 ---
 
@@ -290,8 +341,13 @@ humanoid_agent_harness/
 ├── environment/
 │   ├── __init__.py
 │   └── world.py
-└── examples/
-    └── successful_run.txt
+├── examples/
+│   └── successful_run.txt
+└── assets/
+    ├── architecture.png
+    ├── oax_robot_front.jpg
+    ├── oax_robot_arm.jpg
+    └── demo_output.png
 ```
 
 ---
@@ -540,6 +596,14 @@ Each scenario uses different object and target coordinates.
 
 ---
 
+## Example Run Screenshot
+
+You can add a screenshot of a terminal run here:
+
+![Example terminal output](assets/demo_output.png)
+
+---
+
 ## Why the Controller Matters
 
 LLMs can produce plausible but invalid actions.
@@ -617,24 +681,6 @@ Possible extensions include:
 - deploying the model on a GPU-backed endpoint,
 - adding a visual 2D or 3D frontend,
 - adapting the same harness back to the physical OAX humanoid robot.
-
----
-
-## Related Robot Project
-
-This repository is a virtual harness inspired by my physical OAX humanoid robot project.
-
-The original system explored:
-
-- LLM-driven robot interaction,
-- active vision,
-- object search,
-- structured JSON robot tool calls,
-- Planner and Controller validation,
-- pick and place behaviour,
-- humanoid robot decision-making.
-
-This virtual project keeps the same core idea but makes it easier to run, inspect, and evaluate without robot hardware.
 
 ---
 
