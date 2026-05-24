@@ -1,0 +1,670 @@
+Humanoid Agent Harness - Batch Example Runs
+================================================================================
+This file contains 20 mixed goal-directed scenarios: find-only, find-and-pick, and pick-and-place.
+The LLM proposes tool calls; the Controller validates or repairs them before the World updates state.
+
+Loading LLM agent once for all scenarios...
+
+================================================================================
+Scenario 1: find the cup
+================================================================================
+Task type: find_only
+Target object: cup at [4, 8]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | cup=pos[4, 8], dist=12, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=cup)
+World: Agent searched for cup and found it.
+After: agent=[4, 8] | inventory=[] | cup=pos[4, 8], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[4, 8] | inventory=[] | cup=pos[4, 8], dist=0, reachable=True
+
+================================================================================
+Scenario 2: locate the key
+================================================================================
+Task type: find_only
+Target object: key at [2, 9]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | key=pos[2, 9], dist=11, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=key)
+World: Agent searched for key and found it.
+After: agent=[2, 9] | inventory=[] | key=pos[2, 9], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[2, 9] | inventory=[] | key=pos[2, 9], dist=0, reachable=True
+
+================================================================================
+Scenario 3: search for the screwdriver
+================================================================================
+Task type: find_only
+Target object: screwdriver at [7, 1]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | screwdriver=pos[7, 1], dist=8, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=screwdriver)
+World: Agent searched for screwdriver and found it.
+After: agent=[7, 1] | inventory=[] | screwdriver=pos[7, 1], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[7, 1] | inventory=[] | screwdriver=pos[7, 1], dist=0, reachable=True
+
+================================================================================
+Scenario 4: look for the remote control
+================================================================================
+Task type: find_only
+Target object: remote_control at [10, 3]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | remote_control=pos[10, 3], dist=13, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=remote_control)
+World: Agent searched for remote_control and found it.
+After: agent=[10, 3] | inventory=[] | remote_control=pos[10, 3], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[10, 3] | inventory=[] | remote_control=pos[10, 3], dist=0, reachable=True
+
+================================================================================
+Scenario 5: where is the marker
+================================================================================
+Task type: find_only
+Target object: marker at [1, 6]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | marker=pos[1, 6], dist=7, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=marker)
+World: Agent searched for marker and found it.
+After: agent=[1, 6] | inventory=[] | marker=pos[1, 6], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[1, 6] | inventory=[] | marker=pos[1, 6], dist=0, reachable=True
+
+================================================================================
+Scenario 6: find the bottle and pick it up
+================================================================================
+Task type: find_and_pick
+Target object: bottle at [5, 8]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | bottle=pos[5, 8], dist=13, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=bottle)
+World: Agent searched for bottle and moved to its location.
+After: agent=[5, 8] | inventory=[] | bottle=pos[5, 8], dist=0, reachable=True
+
+Step 2
+------------------------------------------------------------
+Before: agent=[5, 8] | inventory=[] | bottle=pos[5, 8], dist=0, reachable=True
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> pick_object(object=bottle)
+World: Picked up bottle.
+After: agent=[5, 8] | inventory=['bottle'] | bottle=pos[5, 8], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[5, 8] | inventory=['bottle'] | bottle=pos[5, 8], dist=0, reachable=True
+
+================================================================================
+Scenario 7: pick the phone
+================================================================================
+Task type: find_and_pick
+Target object: phone at [3, 4]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | phone=pos[3, 4], dist=7, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=phone)
+World: Agent searched for phone and moved to its location.
+After: agent=[3, 4] | inventory=[] | phone=pos[3, 4], dist=0, reachable=True
+
+Step 2
+------------------------------------------------------------
+Before: agent=[3, 4] | inventory=[] | phone=pos[3, 4], dist=0, reachable=True
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> pick_object(object=phone)
+World: Picked up phone.
+After: agent=[3, 4] | inventory=['phone'] | phone=pos[3, 4], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[3, 4] | inventory=['phone'] | phone=pos[3, 4], dist=0, reachable=True
+
+================================================================================
+Scenario 8: grab the medicine box
+================================================================================
+Task type: find_and_pick
+Target object: medicine_box at [9, 1]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | medicine_box=pos[9, 1], dist=10, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=medicine_box)
+World: Agent searched for medicine_box and moved to its location.
+After: agent=[9, 1] | inventory=[] | medicine_box=pos[9, 1], dist=0, reachable=True
+
+Step 2
+------------------------------------------------------------
+Before: agent=[9, 1] | inventory=[] | medicine_box=pos[9, 1], dist=0, reachable=True
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> pick_object(object=medicine_box)
+World: Picked up medicine_box.
+After: agent=[9, 1] | inventory=['medicine_box'] | medicine_box=pos[9, 1], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[9, 1] | inventory=['medicine_box'] | medicine_box=pos[9, 1], dist=0, reachable=True
+
+================================================================================
+Scenario 9: take the battery pack
+================================================================================
+Task type: find_and_pick
+Target object: battery_pack at [8, 5]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | battery_pack=pos[8, 5], dist=13, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=battery_pack)
+World: Agent searched for battery_pack and moved to its location.
+After: agent=[8, 5] | inventory=[] | battery_pack=pos[8, 5], dist=0, reachable=True
+
+Step 2
+------------------------------------------------------------
+Before: agent=[8, 5] | inventory=[] | battery_pack=pos[8, 5], dist=0, reachable=True
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> pick_object(object=battery_pack)
+World: Picked up battery_pack.
+After: agent=[8, 5] | inventory=['battery_pack'] | battery_pack=pos[8, 5], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[8, 5] | inventory=['battery_pack'] | battery_pack=pos[8, 5], dist=0, reachable=True
+
+================================================================================
+Scenario 10: locate the sensor module and grab it
+================================================================================
+Task type: find_and_pick
+Target object: sensor_module at [4, 2]
+Target location: not required
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | sensor_module=pos[4, 2], dist=6, reachable=False
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> search_object(object=sensor_module)
+World: Agent searched for sensor_module and moved to its location.
+After: agent=[4, 2] | inventory=[] | sensor_module=pos[4, 2], dist=0, reachable=True
+
+Step 2
+------------------------------------------------------------
+Before: agent=[4, 2] | inventory=[] | sensor_module=pos[4, 2], dist=0, reachable=True
+LLM: place_object(object=bottle, target=user)
+Controller: REPAIR | corrected LLM tool -> pick_object(object=sensor_module)
+World: Picked up sensor_module.
+After: agent=[4, 2] | inventory=['sensor_module'] | sensor_module=pos[4, 2], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[4, 2] | inventory=['sensor_module'] | sensor_module=pos[4, 2], dist=0, reachable=True
+
+================================================================================
+Scenario 11: pick the bottle and place it on the table
+================================================================================
+Task type: pick_and_place
+Target object: bottle at [5, 8]
+Target location: table at [9, 9]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | bottle=pos[5, 8], dist=13, reachable=False | table=pos[9, 9], dist=18, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=bottle)
+World: Agent searched for bottle and moved to its location.
+After: agent=[5, 8] | inventory=[] | bottle=pos[5, 8], dist=0, reachable=True | table=pos[9, 9], dist=5, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[5, 8] | inventory=[] | bottle=pos[5, 8], dist=0, reachable=True | table=pos[9, 9], dist=5, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=bottle)
+World: Picked up bottle.
+After: agent=[5, 8] | inventory=['bottle'] | bottle=pos[5, 8], dist=0, reachable=True | table=pos[9, 9], dist=5, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[5, 8] | inventory=['bottle'] | bottle=pos[5, 8], dist=0, reachable=True | table=pos[9, 9], dist=5, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=table)
+World: Agent moved to the target location: table.
+After: agent=[9, 9] | inventory=['bottle'] | bottle=pos[5, 8], dist=5, reachable=False | table=pos[9, 9], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[9, 9] | inventory=['bottle'] | bottle=pos[5, 8], dist=5, reachable=False | table=pos[9, 9], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=bottle, destination=table)
+World: Placed bottle on table.
+After: agent=[9, 9] | inventory=[] | bottle=pos[9, 9], dist=0, reachable=True | table=pos[9, 9], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[9, 9] | inventory=[] | bottle=pos[9, 9], dist=0, reachable=True | table=pos[9, 9], dist=0, reachable=True
+
+================================================================================
+Scenario 12: move the apple to the fruit basket
+================================================================================
+Task type: pick_and_place
+Target object: apple at [1, 8]
+Target location: fruit_basket at [8, 8]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | apple=pos[1, 8], dist=9, reachable=False | fruit_basket=pos[8, 8], dist=16, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=apple)
+World: Agent searched for apple and moved to its location.
+After: agent=[1, 8] | inventory=[] | apple=pos[1, 8], dist=0, reachable=True | fruit_basket=pos[8, 8], dist=7, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[1, 8] | inventory=[] | apple=pos[1, 8], dist=0, reachable=True | fruit_basket=pos[8, 8], dist=7, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=apple)
+World: Picked up apple.
+After: agent=[1, 8] | inventory=['apple'] | apple=pos[1, 8], dist=0, reachable=True | fruit_basket=pos[8, 8], dist=7, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[1, 8] | inventory=['apple'] | apple=pos[1, 8], dist=0, reachable=True | fruit_basket=pos[8, 8], dist=7, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=fruit_basket)
+World: Agent moved to the target location: fruit_basket.
+After: agent=[8, 8] | inventory=['apple'] | apple=pos[1, 8], dist=7, reachable=False | fruit_basket=pos[8, 8], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[8, 8] | inventory=['apple'] | apple=pos[1, 8], dist=7, reachable=False | fruit_basket=pos[8, 8], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=apple, destination=fruit_basket)
+World: Placed apple on fruit_basket.
+After: agent=[8, 8] | inventory=[] | apple=pos[8, 8], dist=0, reachable=True | fruit_basket=pos[8, 8], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[8, 8] | inventory=[] | apple=pos[8, 8], dist=0, reachable=True | fruit_basket=pos[8, 8], dist=0, reachable=True
+
+================================================================================
+Scenario 13: take the key and drop it into the box
+================================================================================
+Task type: pick_and_place
+Target object: key at [1, 6]
+Target location: box at [7, 7]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | key=pos[1, 6], dist=7, reachable=False | box=pos[7, 7], dist=14, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=key)
+World: Agent searched for key and moved to its location.
+After: agent=[1, 6] | inventory=[] | key=pos[1, 6], dist=0, reachable=True | box=pos[7, 7], dist=7, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[1, 6] | inventory=[] | key=pos[1, 6], dist=0, reachable=True | box=pos[7, 7], dist=7, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=key)
+World: Picked up key.
+After: agent=[1, 6] | inventory=['key'] | key=pos[1, 6], dist=0, reachable=True | box=pos[7, 7], dist=7, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[1, 6] | inventory=['key'] | key=pos[1, 6], dist=0, reachable=True | box=pos[7, 7], dist=7, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=box)
+World: Agent moved to the target location: box.
+After: agent=[7, 7] | inventory=['key'] | key=pos[1, 6], dist=7, reachable=False | box=pos[7, 7], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[7, 7] | inventory=['key'] | key=pos[1, 6], dist=7, reachable=False | box=pos[7, 7], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=key, destination=box)
+World: Placed key on box.
+After: agent=[7, 7] | inventory=[] | key=pos[7, 7], dist=0, reachable=True | box=pos[7, 7], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[7, 7] | inventory=[] | key=pos[7, 7], dist=0, reachable=True | box=pos[7, 7], dist=0, reachable=True
+
+================================================================================
+Scenario 14: pick up the charger and place it on the workbench
+================================================================================
+Task type: pick_and_place
+Target object: charger at [3, 9]
+Target location: workbench at [9, 6]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | charger=pos[3, 9], dist=12, reachable=False | workbench=pos[9, 6], dist=15, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=charger)
+World: Agent searched for charger and moved to its location.
+After: agent=[3, 9] | inventory=[] | charger=pos[3, 9], dist=0, reachable=True | workbench=pos[9, 6], dist=9, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[3, 9] | inventory=[] | charger=pos[3, 9], dist=0, reachable=True | workbench=pos[9, 6], dist=9, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=charger)
+World: Picked up charger.
+After: agent=[3, 9] | inventory=['charger'] | charger=pos[3, 9], dist=0, reachable=True | workbench=pos[9, 6], dist=9, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[3, 9] | inventory=['charger'] | charger=pos[3, 9], dist=0, reachable=True | workbench=pos[9, 6], dist=9, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=workbench)
+World: Agent moved to the target location: workbench.
+After: agent=[9, 6] | inventory=['charger'] | charger=pos[3, 9], dist=9, reachable=False | workbench=pos[9, 6], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[9, 6] | inventory=['charger'] | charger=pos[3, 9], dist=9, reachable=False | workbench=pos[9, 6], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=charger, destination=workbench)
+World: Placed charger on workbench.
+After: agent=[9, 6] | inventory=[] | charger=pos[9, 6], dist=0, reachable=True | workbench=pos[9, 6], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[9, 6] | inventory=[] | charger=pos[9, 6], dist=0, reachable=True | workbench=pos[9, 6], dist=0, reachable=True
+
+================================================================================
+Scenario 15: find the screwdriver and put it in the toolbox
+================================================================================
+Task type: pick_and_place
+Target object: screwdriver at [10, 3]
+Target location: toolbox at [2, 5]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | screwdriver=pos[10, 3], dist=13, reachable=False | toolbox=pos[2, 5], dist=7, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=screwdriver)
+World: Agent searched for screwdriver and moved to its location.
+After: agent=[10, 3] | inventory=[] | screwdriver=pos[10, 3], dist=0, reachable=True | toolbox=pos[2, 5], dist=10, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[10, 3] | inventory=[] | screwdriver=pos[10, 3], dist=0, reachable=True | toolbox=pos[2, 5], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=screwdriver)
+World: Picked up screwdriver.
+After: agent=[10, 3] | inventory=['screwdriver'] | screwdriver=pos[10, 3], dist=0, reachable=True | toolbox=pos[2, 5], dist=10, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[10, 3] | inventory=['screwdriver'] | screwdriver=pos[10, 3], dist=0, reachable=True | toolbox=pos[2, 5], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=toolbox)
+World: Agent moved to the target location: toolbox.
+After: agent=[2, 5] | inventory=['screwdriver'] | screwdriver=pos[10, 3], dist=10, reachable=False | toolbox=pos[2, 5], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[2, 5] | inventory=['screwdriver'] | screwdriver=pos[10, 3], dist=10, reachable=False | toolbox=pos[2, 5], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=screwdriver, destination=toolbox)
+World: Placed screwdriver on toolbox.
+After: agent=[2, 5] | inventory=[] | screwdriver=pos[2, 5], dist=0, reachable=True | toolbox=pos[2, 5], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[2, 5] | inventory=[] | screwdriver=pos[2, 5], dist=0, reachable=True | toolbox=pos[2, 5], dist=0, reachable=True
+
+================================================================================
+Scenario 16: move the toy block to the storage box
+================================================================================
+Task type: pick_and_place
+Target object: toy_block at [6, 1]
+Target location: storage_box at [1, 9]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | toy_block=pos[6, 1], dist=7, reachable=False | storage_box=pos[1, 9], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=toy_block)
+World: Agent searched for toy_block and moved to its location.
+After: agent=[6, 1] | inventory=[] | toy_block=pos[6, 1], dist=0, reachable=True | storage_box=pos[1, 9], dist=13, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[6, 1] | inventory=[] | toy_block=pos[6, 1], dist=0, reachable=True | storage_box=pos[1, 9], dist=13, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=toy_block)
+World: Picked up toy_block.
+After: agent=[6, 1] | inventory=['toy_block'] | toy_block=pos[6, 1], dist=0, reachable=True | storage_box=pos[1, 9], dist=13, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[6, 1] | inventory=['toy_block'] | toy_block=pos[6, 1], dist=0, reachable=True | storage_box=pos[1, 9], dist=13, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=storage_box)
+World: Agent moved to the target location: storage_box.
+After: agent=[1, 9] | inventory=['toy_block'] | toy_block=pos[6, 1], dist=13, reachable=False | storage_box=pos[1, 9], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[1, 9] | inventory=['toy_block'] | toy_block=pos[6, 1], dist=13, reachable=False | storage_box=pos[1, 9], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=toy_block, destination=storage_box)
+World: Placed toy_block on storage_box.
+After: agent=[1, 9] | inventory=[] | toy_block=pos[1, 9], dist=0, reachable=True | storage_box=pos[1, 9], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[1, 9] | inventory=[] | toy_block=pos[1, 9], dist=0, reachable=True | storage_box=pos[1, 9], dist=0, reachable=True
+
+================================================================================
+Scenario 17: pick the sponge and place it near the sink
+================================================================================
+Task type: pick_and_place
+Target object: sponge at [6, 6]
+Target location: sink at [10, 0]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | sponge=pos[6, 6], dist=12, reachable=False | sink=pos[10, 0], dist=10, reachable=False
+LLM: place_object(object=bottle, location=sink)
+Controller: REPAIR | corrected LLM tool -> search_object(object=sponge)
+World: Agent searched for sponge and moved to its location.
+After: agent=[6, 6] | inventory=[] | sponge=pos[6, 6], dist=0, reachable=True | sink=pos[10, 0], dist=10, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[6, 6] | inventory=[] | sponge=pos[6, 6], dist=0, reachable=True | sink=pos[10, 0], dist=10, reachable=False
+LLM: place_object(object=bottle, location=sink)
+Controller: REPAIR | corrected LLM tool -> pick_object(object=sponge)
+World: Picked up sponge.
+After: agent=[6, 6] | inventory=['sponge'] | sponge=pos[6, 6], dist=0, reachable=True | sink=pos[10, 0], dist=10, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[6, 6] | inventory=['sponge'] | sponge=pos[6, 6], dist=0, reachable=True | sink=pos[10, 0], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=sink)
+World: Agent moved to the target location: sink.
+After: agent=[10, 0] | inventory=['sponge'] | sponge=pos[6, 6], dist=10, reachable=False | sink=pos[10, 0], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[10, 0] | inventory=['sponge'] | sponge=pos[6, 6], dist=10, reachable=False | sink=pos[10, 0], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=sponge, destination=sink)
+World: Placed sponge on sink.
+After: agent=[10, 0] | inventory=[] | sponge=pos[10, 0], dist=0, reachable=True | sink=pos[10, 0], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[10, 0] | inventory=[] | sponge=pos[10, 0], dist=0, reachable=True | sink=pos[10, 0], dist=0, reachable=True
+
+================================================================================
+Scenario 18: take the sample container and place it on the lab bench
+================================================================================
+Task type: pick_and_place
+Target object: sample_container at [9, 9]
+Target location: lab_bench at [0, 4]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | sample_container=pos[9, 9], dist=18, reachable=False | lab_bench=pos[0, 4], dist=4, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=sample_container)
+World: Agent searched for sample_container and moved to its location.
+After: agent=[9, 9] | inventory=[] | sample_container=pos[9, 9], dist=0, reachable=True | lab_bench=pos[0, 4], dist=14, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[9, 9] | inventory=[] | sample_container=pos[9, 9], dist=0, reachable=True | lab_bench=pos[0, 4], dist=14, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=sample_container)
+World: Picked up sample_container.
+After: agent=[9, 9] | inventory=['sample_container'] | sample_container=pos[9, 9], dist=0, reachable=True | lab_bench=pos[0, 4], dist=14, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[9, 9] | inventory=['sample_container'] | sample_container=pos[9, 9], dist=0, reachable=True | lab_bench=pos[0, 4], dist=14, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=lab_bench)
+World: Agent moved to the target location: lab_bench.
+After: agent=[0, 4] | inventory=['sample_container'] | sample_container=pos[9, 9], dist=14, reachable=False | lab_bench=pos[0, 4], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[0, 4] | inventory=['sample_container'] | sample_container=pos[9, 9], dist=14, reachable=False | lab_bench=pos[0, 4], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=sample_container, destination=lab_bench)
+World: Placed sample_container on lab_bench.
+After: agent=[0, 4] | inventory=[] | sample_container=pos[0, 4], dist=0, reachable=True | lab_bench=pos[0, 4], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[0, 4] | inventory=[] | sample_container=pos[0, 4], dist=0, reachable=True | lab_bench=pos[0, 4], dist=0, reachable=True
+
+================================================================================
+Scenario 19: grab the plastic part and move it to the assembly table
+================================================================================
+Task type: pick_and_place
+Target object: plastic_part at [6, 10]
+Target location: assembly_table at [3, 3]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | plastic_part=pos[6, 10], dist=16, reachable=False | assembly_table=pos[3, 3], dist=6, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=plastic_part)
+World: Agent searched for plastic_part and moved to its location.
+After: agent=[6, 10] | inventory=[] | plastic_part=pos[6, 10], dist=0, reachable=True | assembly_table=pos[3, 3], dist=10, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[6, 10] | inventory=[] | plastic_part=pos[6, 10], dist=0, reachable=True | assembly_table=pos[3, 3], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=plastic_part)
+World: Picked up plastic_part.
+After: agent=[6, 10] | inventory=['plastic_part'] | plastic_part=pos[6, 10], dist=0, reachable=True | assembly_table=pos[3, 3], dist=10, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[6, 10] | inventory=['plastic_part'] | plastic_part=pos[6, 10], dist=0, reachable=True | assembly_table=pos[3, 3], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=assembly_table)
+World: Agent moved to the target location: assembly_table.
+After: agent=[3, 3] | inventory=['plastic_part'] | plastic_part=pos[6, 10], dist=10, reachable=False | assembly_table=pos[3, 3], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[3, 3] | inventory=['plastic_part'] | plastic_part=pos[6, 10], dist=10, reachable=False | assembly_table=pos[3, 3], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=plastic_part, destination=assembly_table)
+World: Placed plastic_part on assembly_table.
+After: agent=[3, 3] | inventory=[] | plastic_part=pos[3, 3], dist=0, reachable=True | assembly_table=pos[3, 3], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[3, 3] | inventory=[] | plastic_part=pos[3, 3], dist=0, reachable=True | assembly_table=pos[3, 3], dist=0, reachable=True
+
+================================================================================
+Scenario 20: pick the snack packet and put it on the kitchen counter
+================================================================================
+Task type: pick_and_place
+Target object: snack_packet at [0, 7]
+Target location: kitchen_counter at [7, 10]
+Agent start: [0, 0]
+
+Step 1
+------------------------------------------------------------
+Before: agent=[0, 0] | inventory=[] | snack_packet=pos[0, 7], dist=7, reachable=False | kitchen_counter=pos[7, 10], dist=17, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=snack_packet)
+World: Agent searched for snack_packet and moved to its location.
+After: agent=[0, 7] | inventory=[] | snack_packet=pos[0, 7], dist=0, reachable=True | kitchen_counter=pos[7, 10], dist=10, reachable=False
+
+Step 2
+------------------------------------------------------------
+Before: agent=[0, 7] | inventory=[] | snack_packet=pos[0, 7], dist=0, reachable=True | kitchen_counter=pos[7, 10], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> pick_object(object=snack_packet)
+World: Picked up snack_packet.
+After: agent=[0, 7] | inventory=['snack_packet'] | snack_packet=pos[0, 7], dist=0, reachable=True | kitchen_counter=pos[7, 10], dist=10, reachable=False
+
+Step 3
+------------------------------------------------------------
+Before: agent=[0, 7] | inventory=['snack_packet'] | snack_packet=pos[0, 7], dist=0, reachable=True | kitchen_counter=pos[7, 10], dist=10, reachable=False
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> search_object(object=kitchen_counter)
+World: Agent moved to the target location: kitchen_counter.
+After: agent=[7, 10] | inventory=['snack_packet'] | snack_packet=pos[0, 7], dist=10, reachable=False | kitchen_counter=pos[7, 10], dist=0, reachable=True
+
+Step 4
+------------------------------------------------------------
+Before: agent=[7, 10] | inventory=['snack_packet'] | snack_packet=pos[0, 7], dist=10, reachable=False | kitchen_counter=pos[7, 10], dist=0, reachable=True
+LLM: get_robot_status()
+Controller: REPAIR | corrected LLM tool -> place_object(object=snack_packet, destination=kitchen_counter)
+World: Placed snack_packet on kitchen_counter.
+After: agent=[7, 10] | inventory=[] | snack_packet=pos[7, 10], dist=0, reachable=True | kitchen_counter=pos[7, 10], dist=0, reachable=True
+
+Scenario result: SUCCESS - Goal completed.
+Final state: agent=[7, 10] | inventory=[] | snack_packet=pos[7, 10], dist=0, reachable=True | kitchen_counter=pos[7, 10], dist=0, reachable=True
+
+================================================================================
+Batch summary: 20/20 scenarios completed successfully.
+================================================================================
