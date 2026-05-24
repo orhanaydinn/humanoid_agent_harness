@@ -77,35 +77,37 @@ The virtual harness in this repository keeps the same core idea, but replaces th
 
 ### Prototype Images
 
+
+-3D Design
 ![OAX humanoid robot prototype - 3D Design](assets/oax_robot_3D_design.jpg)
 
+- Front View
 ![OAX humanoid robot prototype - front view](assets/oax_robot_front.jpg)
 
+- Head Mechanism
 ![OAX humanoid robot prototype - head](assets/oax_robot_head.jpg)
 
+- Gripper and Wrist
 ![OAX humanoid robot prototype - gripper and wrist](assets/oax_robot_gripper.jpg)
 
 ---
 
-## System Architecture
+## Virtual Agent Harness Architecture
 
-The system is organised around a simple but important separation:
+The architecture of this repository is a simplified virtual version of the control structure used in my physical humanoid robot project.
 
-```text
-Natural language goal
-→ Virtual world observation
-→ Hosted OAX-1B-Humanoid LLM
-→ JSON tool call
-→ Controller validation / repair
-→ World action execution
-→ Updated world state
+In this project, the physical robot is replaced with a configurable virtual world:
+
+```mermaid
+flowchart TD
+    A[Natural language goal] --> B[Virtual world observation]
+    B --> C[Hosted OAX-1B-Humanoid LLM]
+    C --> D[JSON tool call]
+    D --> E[Controller validation / repair]
+    E --> F[Virtual world action execution]
+    F --> G[Updated virtual world state]
+    G --> B
 ```
-
-You can add an architecture diagram here:
-
-![System architecture](assets/architecture.png)
-
-The LLM is responsible for high-level reasoning and tool-call proposal. The Controller is responsible for checking whether the proposed action is valid for the current state. The World only executes actions that have passed through the Controller.
 
 ---
 
