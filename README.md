@@ -106,7 +106,7 @@ Natural language goal
 → Controller validation / repair
 → Virtual world action execution
 → Updated virtual world state
-
+```
 ---
 
 ## Key Idea
