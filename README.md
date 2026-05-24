@@ -94,20 +94,18 @@ The virtual harness in this repository keeps the same core idea, but replaces th
 
 ## Virtual Agent Harness Architecture
 
-The architecture of this repository is a simplified virtual version of the control structure used in my physical humanoid robot project.
+This repository implements a simplified virtual version of the control structure used in my physical humanoid robot project.
 
-In this project, the physical robot is replaced with a configurable virtual world:
+The loop is:
 
-```mermaid
-flowchart TD
-    A[Natural language goal] --> B[Virtual world observation]
-    B --> C[Hosted OAX-1B-Humanoid LLM]
-    C --> D[JSON tool call]
-    D --> E[Controller validation / repair]
-    E --> F[Virtual world action execution]
-    F --> G[Updated virtual world state]
-    G --> B
-```
+```text
+Natural language goal
+→ Virtual world observation
+→ Hosted OAX-1B-Humanoid LLM
+→ JSON tool call
+→ Controller validation / repair
+→ Virtual world action execution
+→ Updated virtual world state
 
 ---
 
