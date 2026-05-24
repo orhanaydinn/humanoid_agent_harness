@@ -78,16 +78,16 @@ The virtual harness in this repository keeps the same core idea, but replaces th
 ### Prototype Images
 
 
--3D Design
+**3D Design**
 ![OAX humanoid robot prototype - 3D Design](assets/oax_robot_3D_design.jpg)
 
-- Front View
+**Front View**
 ![OAX humanoid robot prototype - front view](assets/oax_robot_front.jpg)
 
-- Head Mechanism
+**Head Mechanism**
 ![OAX humanoid robot prototype - head](assets/oax_robot_head.jpg)
 
-- Gripper and Wrist
+**Gripper and Wrist**
 ![OAX humanoid robot prototype - gripper and wrist](assets/oax_robot_gripper.jpg)
 
 ---
