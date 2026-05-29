@@ -25,6 +25,8 @@ The video demonstrates:
 - updating the virtual world state,
 - completing the task successfully.
 
+
+<img width="800" height="450" alt="Image" src="https://github.com/user-attachments/assets/3bbcbe95-ffcc-4e52-bad2-d0fc91c9f1bc" />
 ---
 
 ## Background
