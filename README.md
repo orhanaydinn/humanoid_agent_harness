@@ -25,8 +25,13 @@ The video demonstrates:
 - updating the virtual world state,
 - completing the task successfully.
 
+### Quick Preview
 
-<img width="800" height="450" alt="Image" src="https://github.com/user-attachments/assets/3bbcbe95-ffcc-4e52-bad2-d0fc91c9f1bc" />
+The GIF below shows the hosted LLM agent loop in action. The model proposes a tool call, the Controller repairs invalid actions when needed, and the virtual world updates its state step by step.
+
+!Mission: What Do You See?<img width="800" height="450" alt="Image" src="https://github.com/user-attachments/assets/3bbcbe95-ffcc-4e52-bad2-d0fc91c9f1bc" />
+
+
 ---
 
 ## Background
