@@ -45,7 +45,7 @@ The GIF below shows short clips from the original OAX humanoid robot prototype. 
 
 
 <img width="800" height="450" alt="Image" src="https://github.com/user-attachments/assets/16559723-622d-4e29-a526-c7c63d6322f6" n/>
----
+
 
 ## Background
 
