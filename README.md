@@ -27,7 +27,7 @@ The video demonstrates:
 
 ### Quick Preview
 
-The GIF below shows the hosted LLM agent loop in action. The model proposes a tool call, the Controller repairs invalid actions when needed, and the virtual world updates its state step by step.
+The GIF below shows short clips from the original OAX humanoid robot prototype. It includes three real robot behaviours: asking the robot what it can see, searching for a bottle, and executing a find-and-pick task.
 
 **Mission: What Do You See?**
 
