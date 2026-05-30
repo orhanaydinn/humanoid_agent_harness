@@ -14,7 +14,12 @@ The system uses my hosted **OAX-1B-Humanoid** language model through a Hugging F
 
 A short demonstration video is available here:
 
-[Watch the demo video](https://drive.google.com/file/d/1RxVhzRdtgY-IFzAmc1D7efbQyPrlYRvs/view?usp=drive_link)
+
+**Watch the demo video:**  
+[General Video](https://drive.google.com/file/d/1RxVhzRdtgY-IFzAmc1D7efbQyPrlYRvs/view?usp=drive_link)
+
+
+[Pick the Item Mission](https://drive.google.com/file/d/1j66xS044M23ib0o_Fbe2aAZ1U9b1IxEU/view?usp=drive_link)
 
 The video demonstrates:
 
@@ -27,7 +32,7 @@ The video demonstrates:
 
 ### Quick Preview
 
-The GIF below shows short clips from the original OAX humanoid robot prototype. It includes three real robot behaviours: asking the robot what it can see, searching for a bottle, and executing a find-and-pick task.
+The GIF below shows short clips from the original [OAX humanoid robot prototype](https://github.com/orhanaydinn/oax_humanoid_robot). It includes three real robot behaviours: asking the robot what it can see, searching for a bottle, and executing a find-and-pick task.
 
 **Mission: What Do You See?**
 
